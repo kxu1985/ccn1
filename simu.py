@@ -25,38 +25,43 @@ def TopoFullConnected():
 	print 'Creating a full-connected topo...'
 	print 'Configure source...'
 	tmp_config = [];
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.54')
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.55')
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.56')
+	tmp_config.append('add ccnx:/ udp 172.16.10.54')
+	tmp_config.append('add ccnx:/ udp 172.16.10.55')
+	tmp_config.append('add ccnx:/ udp 172.16.10.56')
+	tmp_config.append('add ccnx:/ udp 172.16.10.60')
 	#print tmp_config
-	subprocess.call("ssh -t htor@source 'rm ~/.ccnx/ccnd.conf; echo " + tmp_config[0] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[1] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[2] + " >> ~/.ccnx/ccnd.conf;'",shell=True)
-	subprocess.call("ssh -n -f htor@source '" + env_debug + ";" + env_repodir + ";" + env_logdir + "; nohup ~/Programs/ccnx/ccnx-0.8.2/bin/ccndstart &'", shell=True)
+	subprocess.call("ssh -t htor@source 'rm ~/.ccnx/ccnd.conf; echo " + tmp_config[0] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[1] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[2] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[3] + " >> ~/.ccnx/ccnd.conf'",shell=True)
+	#subprocess.call("ssh -n -f htor@source '" + env_debug + ";" + env_repodir + ";" + env_logdir + "; nohup ~/Programs/ccnx/ccnx-0.8.2/bin/ccndstart &'", shell=True)
+	subprocess.call("ssh -n -f htor@source '" + env_debug + ";" + env_repodir + ";" + env_logdir + "; nohup ~/Documents/ccn1/source_start &'", shell=True)
 	
 	print 'Configure rsu1...'
 	tmp_config = [];
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.53')
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.55')
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.56')
+	tmp_config.append('add ccnx:/ udp 172.16.10.53')
+	tmp_config.append('add ccnx:/ udp 172.16.10.55')
+	tmp_config.append('add ccnx:/ udp 172.16.10.56')
+	tmp_config.append('add ccnx:/ udp 172.16.10.60')
 	#print tmp_config
-	subprocess.call("ssh -t htor@rsu1 'rm ~/.ccnx/ccnd.conf; echo " + tmp_config[0] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[1] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[2] + " >> ~/.ccnx/ccnd.conf;'",shell=True)
+	subprocess.call("ssh -t htor@rsu1 'rm ~/.ccnx/ccnd.conf; echo " + tmp_config[0] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[1] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[2] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[3] + " >> ~/.ccnx/ccnd.conf'",shell=True)
 	subprocess.call("ssh -n -f htor@rsu1 '" + env_debug + ";" + env_repodir + ";" + env_logdir + "; nohup ~/Programs/ccnx/ccnx-0.8.2/bin/ccndstart &'", shell=True)
 
 	print 'Configure rsu2...'
 	tmp_config = [];
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.53')
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.54')
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.56')
+	tmp_config.append('add ccnx:/ udp 172.16.10.53')
+	tmp_config.append('add ccnx:/ udp 172.16.10.54')
+	tmp_config.append('add ccnx:/ udp 172.16.10.56')
+	tmp_config.append('add ccnx:/ udp 172.16.10.60')
 	#print tmp_config
-	subprocess.call("ssh -t htor@rsu2 'rm ~/.ccnx/ccnd.conf; echo " + tmp_config[0] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[1] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[2] + " >> ~/.ccnx/ccnd.conf;'",shell=True)
+	subprocess.call("ssh -t htor@rsu2 'rm ~/.ccnx/ccnd.conf; echo " + tmp_config[0] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[1] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[2] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[3] + " >> ~/.ccnx/ccnd.conf'",shell=True)
 	subprocess.call("ssh -n -f htor@rsu2 '" + env_debug + ";" + env_repodir + ";" + env_logdir + "; nohup ~/Programs/ccnx/ccnx-0.8.2/bin/ccndstart &'", shell=True)
 
 	print 'Configure rsu3...'
 	tmp_config = [];
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.53')
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.54')
-	tmp_config.append('add ccnx:/ccn_shared udp 172.16.10.55')
+	tmp_config.append('add ccnx:/ udp 172.16.10.53')
+	tmp_config.append('add ccnx:/ udp 172.16.10.54')
+	tmp_config.append('add ccnx:/ udp 172.16.10.55')
+	tmp_config.append('add ccnx:/ udp 172.16.10.60')
 	#print tmp_config
-	subprocess.call("ssh -t htor@rsu3 'rm ~/.ccnx/ccnd.conf; echo " + tmp_config[0] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[1] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[2] + " >> ~/.ccnx/ccnd.conf;'",shell=True)
+	subprocess.call("ssh -t htor@rsu3 'rm ~/.ccnx/ccnd.conf; echo " + tmp_config[0] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[1] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[2] + " >> ~/.ccnx/ccnd.conf; echo " + tmp_config[3] + " >> ~/.ccnx/ccnd.conf'",shell=True)
 	subprocess.call("ssh -n -f htor@rsu3 '" + env_debug + ";" + env_repodir + ";" + env_logdir + "; nohup ~/Programs/ccnx/ccnx-0.8.2/bin/ccndstart &'", shell=True)
 	
 	print 'Configuring veh1...'
