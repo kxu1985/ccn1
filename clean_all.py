@@ -21,4 +21,4 @@ def Clean():
 	subprocess.call("ssh -t htor@veh10 'ccnrm ccnx:/; ccndstop; rm /tmp/ccnd.log; rm ~/.ccnx/ccnd.conf'", shell=True)
 
 Clean()
-print "Finish."
+print "Finish cleaning."
